@@ -3,30 +3,30 @@ import os
 import xlwt
 import re
 from openpyxl import Workbook
-from lxml import etree
+import pandas as pd
+from python.variable import save_path, xlsx_path, xlsx_title
 
 
-class BossData:
+class ParseHTML:
     def __init__(self):
 
         self.workbook = Workbook()
         self.worksheet = self.workbook.active
         self.worksheet.title = '数据产品经理'
-
-        #self.workbook = xlwt.Workbook(encoding='utf-8')
-        #self.worksheet = self.workbook.create_sheet('数据产品经理')
-        self.title = ('职位名称', '公司名称', '规模', '行业', '薪资', '年薪', '经验', '学历', '标签', '福利', 'job地址')
+        self.title = xlsx_title
         self.coloumIndex = 1;
         self.write_xlw(self.title, 1)
         self.open_file()
 
-        path = './python/dist/file'
+        path = save_path
+        print(path)
 
         if not os.path.exists(path):  # 判断当前路径是否存在，没有则创建new文件夹
             os.makedirs(path)
 
-        print(2333)
-        self.workbook.save(path+'/job.xlsx')
+        self.workbook.save(xlsx_path)
+
+      
         #self.workbook.save('./dist/file/job-back.xlsx')
 
     def open_file(self):
@@ -193,4 +193,3 @@ class BossData:
 
         self.write_xlw_row(tags, self.title.index('福利'))
 
-BossData()
