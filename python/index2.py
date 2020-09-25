@@ -46,6 +46,7 @@ class ParseHTML:
                 self.parse_list2(soup)
 
     def parse_list2(self, soup):
+
         self.parse_job(soup)
         self.parse_company(soup)
         self.parse_scale(soup)
