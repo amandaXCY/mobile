@@ -24,8 +24,11 @@ class HTML2Md:
         soup = BeautifulSoup(str_html, 'lxml')  # lxml为解析器
         content = str(soup.select(contetClasName)[0])
 
+
+
         # to markdown
         markdown_content = tomd.Tomd(content).markdown
+        print(markdown_content)
         self.cleanHTMLTargert(markdown_content)
 
     def file_name(self, path):
@@ -104,4 +107,4 @@ class HTML2Md:
         file.write(content)
 
 
-a = HTML2Md("/Users/amanda/Downloads/bb.htm", '.home-block');
+a = HTML2Md("/Users/amanda/Downloads/dd.htm", '.ant-layout-content');

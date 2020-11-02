@@ -14,15 +14,22 @@ export default function () {
         },
         tooltip: {
             trigger: 'item',
-            formatter: '{a} <br/>{b} : {c} ({d}%)'
+            formatter: '{a}:{d}'
         },
-
+        dataset: {
+            source: [
+                Data['index'],
+               Data['data'],
+            ]
+        },
         series: [
             {
                 type: 'pie',
-                radius: '40%',
-                center: ['50%', '50%'],
-                data: series,
+                radius:'20%',
+                seriesLayoutBy: 'row',
+                label:{
+                   formatter: '{b}:{d}%'
+                }
 
             }
         ]

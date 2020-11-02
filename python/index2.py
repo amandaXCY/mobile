@@ -19,7 +19,7 @@ class ParseHTML:
         self.open_file()
 
         path = save_path
-        print(path)
+        print(111)
 
         if not os.path.exists(path):  # 判断当前路径是否存在，没有则创建new文件夹
             os.makedirs(path)
@@ -65,6 +65,7 @@ class ParseHTML:
 
     def write_xlw_row(self, title, row ,color ='black'):
         for i in range(len(title)):
+            print(title[i])
             self.worksheet.cell(row = i + self.coloumIndex + 1,column= row+1, value="{0}".format(title[i]))
 
     # 职位名称
